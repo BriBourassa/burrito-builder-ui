@@ -6,25 +6,36 @@ class OrderForm extends Component {
     this.props = props;
     this.state = {
       name: '',
-      ingredients: []
+      ingredients: [],
     };
   }
 
   handleSubmit = e => {
     e.preventDefault();
+    const newOrder = {
+      id: Date.now(),
+      ...this.state
+    }
+    // if(this.ingredients.length > 0) {
+    this.props.addOrder(newOrder)
     this.clearInputs();
-  }
+    // }
+  };
 
   clearInputs = () => {
     this.setState({name: '', ingredients: []});
+    console.log('hi')
   }
 
   handleIngredientChange = (e) => {
+    e.preventDefault();
+    this.setState({ingredients: [e.target.value]})
 
   }
 
   handleNameChange = (e) => {
-
+    e.preventDefault()
+    this.setState({[e.target.name]: e.target.value})
   }
 
   render() {
