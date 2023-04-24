@@ -29,8 +29,9 @@ class OrderForm extends Component {
 
   handleIngredientChange = (e) => {
     e.preventDefault();
-    this.setState({ingredients: [e.target.value]})
-
+    // this.setState({[e.target.ingredient]: e.target.value})
+      
+      // push ingredients into array?
   }
 
   handleNameChange = (e) => {
